@@ -13,13 +13,21 @@
 .myColorLightBleu {
     background: rgba(142,218,252,255);
 }
+.mySendMessage {
+    background: rgba(213,249,186,255);
+}
 
 /* SIZE */
 .mySizeIcon {
     width: 4rem;
     height: 4rem;
 }
+.myTimeSize {
+    font-size: 0.7rem;
+}
 
+
+/* EXTRA */
 .myHoverflow {
     overflow-x: hidden;
     overflow-y: scroll;
