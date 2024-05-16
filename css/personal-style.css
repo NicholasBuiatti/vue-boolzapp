@@ -1,0 +1,21 @@
+/* COLOR */
+.myBackground {
+    background: linear-gradient(to bottom, #009688 25%,#d9dbd5 25%,#d9dbd5 25%);
+    height: 100vh;
+    width: 100%;
+}
+.myColorContainer {
+    background: rgba(234,234,234,255)
+}
+.textColorLightBleu {
+    color: rgba(142,218,252,255)
+}
+.myColorLightBleu {
+    background: rgba(142,218,252,255);
+}
+
+/* SIZE */
+.mySizeIcon {
+    width: 5rem;
+    height: 5rem;
+}
