@@ -16,6 +16,12 @@
 
 /* SIZE */
 .mySizeIcon {
-    width: 5rem;
-    height: 5rem;
+    width: 4rem;
+    height: 4rem;
+}
+
+.myHoverflow {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 60%;
 }
