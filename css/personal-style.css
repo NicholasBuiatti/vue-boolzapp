@@ -23,5 +23,9 @@
 .myHoverflow {
     overflow-x: hidden;
     overflow-y: scroll;
-    height: 60%;
+}
+
+.mySfondo {
+    background-image: url('../sfondo.jpg');
+    background-position: center;
 }
