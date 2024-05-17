@@ -58,12 +58,13 @@
                         <button type="button" class="col-2 btn bg-light border border-2">
                             <i class="fas fa-search text-secondary"></i>
                         </button>
-                        <input type="search" id="form1" class="col-10 bg-light border border-2" />
+                        <input v-model="searchUser" @keyup="comparazione" type="search" id="form1" class="col-10 bg-light border border-2" />
+                        <div>{{searchUser}}</div>
                     </div>
 
                     <!-- user-List -->
                     <div class="myHoverflow bg-light">
-                        <div v-for="user, i in contacts" @click="userSelected(i)" class="row justify-content-between p-1" role="button" id="userId">
+                        <div v-for="user, i in contacts" @click="userSelected(i)"  class="row justify-content-between p-1" role="button" id="userId">
                             <div class="row col-10 align-items-center">
                                 <figure class="col-3 mb-0 ">
                                     <img class="mySizeIcon rounded-circle" :src="user.avatar" alt="">
@@ -91,7 +92,7 @@
                     <div class="row justify-content-between align-items-center p-1">
                         <div class="row col-8 align-items-center">
                             <figure class="col-2 mb-0 ">
-                                <img class="w-100 rounded-circle" :src="contacts[userNow].avatar" alt="">
+                                <img class="mySizeIcon rounded-circle" :src="contacts[userNow].avatar" alt="">
                             </figure>
                             <div class="col">
                                 <p class="fs-4 fw-bold mb-0">{{ contacts[userNow].name }}</p>
@@ -143,6 +144,7 @@
 
             </div>
         </div>
+        <button @click="test">ciao</button>
     </div>
 
     <!-- VUE.JS -->

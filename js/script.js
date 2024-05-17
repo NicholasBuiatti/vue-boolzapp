@@ -170,6 +170,7 @@ createApp({
             //VARIABILE PER SELEZIONARE UN DETERMITANO USER IN BASE ALL'INDICE DELL'ARRAY
             userNow: 0,
             newMessage: '',
+            searchUser: '',
         }
     },
     methods: {
@@ -189,26 +190,70 @@ createApp({
             user.push(newMsg)
             // FUNZIONE DI RISPOSTA DELL'UTENTE
             setTimeout(() => {
-                let user = this.contacts[this.userNow].messages
                 let newMsg = {
                     date: new Date().toLocaleString(),
                     message: 'ok',
                     status: 'recived'
                 };
                 user.push(newMsg)
-
-                console.log(user);
             }, 2000);
 
             console.log(user);
         },
-        
+        // BESTEMMIE CICLO
+        comparazione() {
+            // PUSHO OGNI LETTERA UNA ALLA VOLTA IN UN ARRAY
+            let lettera = this.searchUser
+            let parolaUtente = []
+            parolaUtente.push(lettera)
+            console.log('la parola', lettera, 'array:', parolaUtente);
+            console.log(parolaUtente[0].length);
+            // FACCIO UN CICLO PER PRENDERE OGNI SINGOLA LETTERA DELLA PAROLAUTENTE PER CONFRONTARLA CON LA PAROLA NAME NELLA LISTA CONTACT
+            for (let i = 0; i < parolaUtente[0].length; i++) {
+                const nome = parolaUtente[i];
+                console.log('lettera nell"array', nome);
+                if (nome == this.contacts.name[i]) {
+                    return true;
+                } else {
+                    return false
+                }
+            }
+
+// CI VUOLE DEL RIPOSOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+
+
+
+            // let lettera = this.searchUser
+            // console.log('la parola', lettera);
+            // for (let i = 0; i < lettera.length; i++) {
+            //     const element = lettera;
+            //     console.log('la lettera nel ciclo',element);
+            //     console.log(element[i]);
+            //     if (element[i] == this.contacts[this.userNow].name[i]) {
+
+            //         return true;
+
+
+            //     } else {
+            //         return false
+            //     }
+            // }
+
+
+        },
+        test() {
+            console.log(this.comparazione());
+        }
 
     },
     mounted() {
+        // console.log(this.contacts[this.userNow].name);
+        // console.log(this.contacts[this.userNow].name[0]);
 
-
+        // console.log(this.searchUser.length);
+        // console.log(this.comparazione())
     }
+
 
 }).mount('#app');
 
