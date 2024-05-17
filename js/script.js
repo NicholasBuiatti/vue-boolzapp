@@ -182,14 +182,27 @@ createApp({
         sendMessage() {
             let user = this.contacts[this.userNow].messages
             let newMsg = {
-                date: new Date().toLocaleString(), 
+                date: new Date().toLocaleString(),
                 message: this.newMessage,
                 status: 'sent'
             };
             user.push(newMsg)
-            
+            // FUNZIONE DI RISPOSTA DELL'UTENTE
+            setTimeout(() => {
+                let user = this.contacts[this.userNow].messages
+                let newMsg = {
+                    date: new Date().toLocaleString(),
+                    message: 'ok',
+                    status: 'recived'
+                };
+                user.push(newMsg)
+
+                console.log(user);
+            }, 2000);
+
             console.log(user);
-        }
+        },
+        
 
     },
     mounted() {
