@@ -169,6 +169,7 @@ createApp({
             ],
             //VARIABILE PER SELEZIONARE UN DETERMITANO USER IN BASE ALL'INDICE DELL'ARRAY
             userNow: 0,
+            newMessage: '',
         }
     },
     methods: {
@@ -176,6 +177,18 @@ createApp({
         userSelected(index) {
             this.userNow = index
             console.log(index);
+        },
+        // FUNZIONE PER L'INVIO DI MESSAGGI
+        sendMessage() {
+            let user = this.contacts[this.userNow].messages
+            let newMsg = {
+                date: new Date().toLocaleString(), 
+                message: this.newMessage,
+                status: 'sent'
+            };
+            user.push(newMsg)
+            
+            console.log(user);
         }
 
     },

@@ -37,3 +37,7 @@
     background-image: url('../sfondo.jpg');
     background-position: center;
 }
+#userId:hover {
+    border: 2px solid red;
+    
+}

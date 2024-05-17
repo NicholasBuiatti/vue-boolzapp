@@ -63,8 +63,7 @@
 
                     <!-- user-List -->
                     <div class="myHoverflow bg-light">
-                        <div v-for="user, i in contacts" @click="userSelected(i)"
-                            class="row justify-content-between p-1">
+                        <div v-for="user, i in contacts" @click="userSelected(i)" class="row justify-content-between p-1" role="button" id="userId">
                             <div class="row col-10 align-items-center">
                                 <figure class="col-3 mb-0 ">
                                     <img class="mySizeIcon rounded-circle" :src="user.avatar" alt="">
@@ -124,10 +123,14 @@
                         <div class="col-1">
                             <i class="fs-3 text-secondary fa-regular fa-face-smile"></i>
                         </div>
-                        <input type="text" class="col-9 rounded border-0">
+                        <input type="text" v-model="newMessage" class="col-9 rounded border-0">
                         <div class="col row">
                             <i class="col-6 fs-3 text-center text-secondary fa-solid fa-microphone"></i>
-                            <i class="col-6 fs-3 text-center text-secondary fa-solid fa-paper-plane"></i>
+                            
+                            <button @click="sendMessage" class="col-4 ps-0 pe-0 border-0">
+                                <i class="fs-3 text-center text-secondary fa-solid fa-paper-plane"></i>
+                            </button>
+                            
                         </div>
                     </div>
                 </div>
