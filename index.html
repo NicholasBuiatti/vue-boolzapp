@@ -30,9 +30,9 @@
                     <div class="row justify-content-between align-items-center p-1">
                         <div class="row col-5 align-items-center">
                             <figure class="col-6 mb-0 ">
-                                <img class="mySizeIcon rounded-circle" src="https://i.pravatar.cc" alt="">
+                                <img class="mySizeIcon rounded-circle" src="./img/avatar_io.jpg" alt="">
                             </figure>
-                            <p class="col-6 mb-0">Sofia</p>
+                            <p class="col-6 fs-4 fw-bold mb-0">IO</p>
                         </div>
                         <div class="col-5 text-end">
                             <i class="fs-3 m-3 text-secondary fa-solid fa-circle-notch"></i>
@@ -63,13 +63,13 @@
 
                     <!-- user-List -->
                     <div class="myHoverflow bg-light">
-                        <div class="row justify-content-between p-1">
+                        <div v-for="user, i in contacts" class="row justify-content-between p-1">
                             <div class="row col-10 align-items-center">
                                 <figure class="col-3 mb-0 ">
-                                    <img class="mySizeIcon rounded-circle" src="https://i.pravatar.cc" alt="">
+                                    <img class="mySizeIcon rounded-circle" :src="user.avatar" alt="">
                                 </figure>
                                 <div class="col-9">
-                                    <p class="fs-4 fw-bold mb-0">Sofia</p>
+                                    <p class="fs-4 fw-bold mb-0">{{ user.name }}</p>
                                     <p class="text-secondary">Ultimo accesso</p>
                                 </div>
 
@@ -92,7 +92,7 @@
                                 <img class="w-100 rounded-circle" src="https://i.pravatar.cc" alt="">
                             </figure>
                             <div class="col">
-                                <p class="mb-0">Sofia</p>
+                                <p class="fs-4 fw-bold mb-0">user</p>
                                 <p>Ultimo accesso oggi alle 1600</p>
                             </div>
 
