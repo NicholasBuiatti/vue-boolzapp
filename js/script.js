@@ -166,14 +166,21 @@ createApp({
                         }
                     ],
                 }
-            ]
-
+            ],
+            //VARIABILE PER SELEZIONARE UN DETERMITANO USER IN BASE ALL'INDICE DELL'ARRAY
+            userNow: 0,
         }
     },
     methods: {
+        // FUNZIONE PER SELEZIONARE UN DETERMINATO USER CAMBIANDO LA VARIABILE D'APPOGGIO
+        userSelected(index) {
+            this.userNow = index
+            console.log(index);
+        }
 
     },
     mounted() {
+
 
     }
 

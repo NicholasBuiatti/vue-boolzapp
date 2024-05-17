@@ -63,22 +63,23 @@
 
                     <!-- user-List -->
                     <div class="myHoverflow bg-light">
-                        <div v-for="user, i in contacts" class="row justify-content-between p-1">
+                        <div v-for="user, i in contacts" @click="userSelected(i)"
+                            class="row justify-content-between p-1">
                             <div class="row col-10 align-items-center">
                                 <figure class="col-3 mb-0 ">
                                     <img class="mySizeIcon rounded-circle" :src="user.avatar" alt="">
                                 </figure>
                                 <div class="col-9">
                                     <p class="fs-4 fw-bold mb-0">{{ user.name }}</p>
-                                    <p class="text-secondary">Ultimo accesso</p>
+                                    <p class="text-secondary">{{user.messages[user.messages.length-1].message}}</p>
                                 </div>
 
                             </div>
                             <div class="col-2 text-end">
-                                <span class="myTimeSize">16.00</span>
+                                <span class="myTimeSize">{{user.messages[user.messages.length-1].date}}</span>
                             </div>
                         </div>
-                        
+
 
                     </div>
                 </div>
@@ -86,16 +87,19 @@
                 <!-- right-part -->
                 <div class="d-flex flex-column col-7 ps-0 pe-0 h-100">
                     <!-- User -->
+
+
                     <div class="row justify-content-between align-items-center p-1">
                         <div class="row col-8 align-items-center">
                             <figure class="col-2 mb-0 ">
-                                <img class="w-100 rounded-circle" src="https://i.pravatar.cc" alt="">
+                                <img class="w-100 rounded-circle" :src="contacts[userNow].avatar" alt="">
                             </figure>
                             <div class="col">
-                                <p class="fs-4 fw-bold mb-0">user</p>
-                                <p>Ultimo accesso oggi alle 1600</p>
+                                <p class="fs-4 fw-bold mb-0">{{ contacts[userNow].name }}</p>
+                                <p>Ultimo accesso: <span>{{
+                                        contacts[userNow].messages[contacts[userNow].messages.length-1].date }}</span>
+                                </p>
                             </div>
-
                         </div>
                         <div class="col-3 text-end">
                             <i class="fs-3 m-3 text-secondary fa-solid fa-magnifying-glass"></i>
@@ -103,18 +107,18 @@
                             <i class="fs-3 m-3 text-secondary fa-solid fa-ellipsis-vertical"></i>
                         </div>
                     </div>
+
+
                     <!-- Chat User screen -->
+
                     <div class="d-flex flex-column mySfondo p-4 myHoverflow h-100">
-                        <div class="col-5 mySendMessage m-3 p-2 align-self-end rounded">
-                            <p class="mb-0">ciao</p>
-                            <p class="text-end text-secondary mb-0 myTimeSize">1600</p>
+                        <div v-for="msg, i in contacts[userNow].messages"
+                            :class="(msg.status == 'sent') ? 'col-5 mySendMessage m-3 p-2 align-self-end rounded' : 'col-5 bg-white m-3 p-2 rounded'">
+                            <p class="mb-0">{{ msg.message }}</p>
+                            <p class="text-end text-secondary mb-0 myTimeSize">{{ msg.date }}</p>
                         </div>
-                        <div class="col-5 bg-white m-3 p-2 rounded">
-                            <p class="mb-0">ciao</p>
-                            <p class="text-end text-secondary mb-0 myTimeSize">1600</p>
-                        </div>
-                        
                     </div>
+
                     <!-- end right part -->
                     <div class="row p-3 justify-content-between">
                         <div class="col-1">
