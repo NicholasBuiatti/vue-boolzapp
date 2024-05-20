@@ -228,7 +228,7 @@ createApp({
 
     },
     mounted() {
-        
+        console.log(this.contacts[this.userNow].messages.length);
     },
 
 
