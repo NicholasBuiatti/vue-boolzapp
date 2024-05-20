@@ -174,6 +174,9 @@ createApp({
         }
     },
     methods: {
+        nMsg (){
+            return this.contacts[this.userNow].messages.length
+        },
         // FUNZIONE PER SELEZIONARE UN DETERMINATO USER CAMBIANDO LA VARIABILE D'APPOGGIO
         userSelected(index) {
             this.userNow = index
@@ -200,59 +203,33 @@ createApp({
 
             console.log(user);
         },
-        // BESTEMMIE CICLO
+        // CREATO PROBLEMI
+        // FUNZIONE PER RENDERE IL VISIBLE TRUE O FALSE E FAR VEDERE I CONTATTI CHE SI RICERCANO
         comparazione() {
-            // PUSHO OGNI LETTERA UNA ALLA VOLTA IN UN ARRAY
-            let lettera = this.searchUser
-            let parolaUtente = []
-            parolaUtente.push(lettera)
-            console.log('la parola', lettera, 'array:', parolaUtente);
-            console.log(parolaUtente[0].length);
-            // FACCIO UN CICLO PER PRENDERE OGNI SINGOLA LETTERA DELLA PAROLAUTENTE PER CONFRONTARLA CON LA PAROLA NAME NELLA LISTA CONTACT
-            for (let i = 0; i < parolaUtente[0].length; i++) {
-                const nome = parolaUtente[i];
-                console.log('lettera nell"array', nome);
-                if (nome == this.contacts.name[i]) {
-                    return true;
+            for (let i = 0; i < this.contacts.length; i++) {
+                const element = this.contacts[i];
+
+                let lettera = this.searchUser
+                if (!element.name.startsWith(lettera)) {
+                    element.visible = false
                 } else {
-                    return false
+                    element.visible = true
                 }
             }
-
-// CI VUOLE DEL RIPOSOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
-
-
-
-            // let lettera = this.searchUser
-            // console.log('la parola', lettera);
-            // for (let i = 0; i < lettera.length; i++) {
-            //     const element = lettera;
-            //     console.log('la lettera nel ciclo',element);
-            //     console.log(element[i]);
-            //     if (element[i] == this.contacts[this.userNow].name[i]) {
-
-            //         return true;
-
-
-            //     } else {
-            //         return false
-            //     }
-            // }
-
-
+            console.log(this.contacts);
+            
         },
-        test() {
-            console.log(this.comparazione());
-        }
+        // pulsante per cancellare il messaggio (ma se elimino l'ultimo mi blocca l'applicazione)
+        deleteMsg(index) {
+            this.contacts[this.userNow].messages.splice(index,1);
+            console.log(this.contacts);
+            console.log(this.nMsg());
+        },
 
     },
     mounted() {
-        // console.log(this.contacts[this.userNow].name);
-        // console.log(this.contacts[this.userNow].name[0]);
-
-        // console.log(this.searchUser.length);
-        // console.log(this.comparazione())
-    }
+        
+    },
 
 
 }).mount('#app');
@@ -263,3 +240,52 @@ createApp({
 //                     variabileSalvata = result.data.response; ======>  oggetto preso e salvato
 //
 //                 });
+
+// FUNZIONE DI COMPARAZIONE CHE NON RIUSCIVO A FAR FUNZIONARE
+
+        // comparazione() {
+        //     // SALVO LA PAROLA IN UNA VARIABILE
+        //     let lettera = this.searchUser
+        //     let parolaUtente = []
+            
+        //     for (let i = 0; i < this.contacts.length; i++) {
+        //         const element = this.contacts[i];
+        //         parolaUtente.push(element.name)
+        //     }
+        //     for (let i = 0; i < parolaUtente.length; i++) {
+        //         const element = parolaUtente[i];
+        //         element.startsWith(lettera)
+        //     }
+            
+        //     console.log('la parola', lettera, 'array:', parolaUtente);
+            // PER OGNI NOME MI FAI UN CICLO SULLA PAROLA
+            // for (let i = 0; i < parolaUtente.length; i++) {
+            //     const element = parolaUtente[i];
+            //     // CONTROLLI SE LA LETTERA CHE SCRIVO è NELLA PAROLA DELL'ARRAY
+            //     for (let l = 0; l < lettera.length; l++) {
+            //         const letteraSingola = lettera[l];
+            //         if (letteraSingola == element[l]) {
+            //             console.log('ok')
+            //         } else {
+            //             console.log('falso');
+            //         }
+            //     }
+            // }
+            
+            
+            // FACCIO UN CICLO PER PRENDERE OGNI SINGOLA LETTERA DELLA PAROLAUTENTE PER CONFRONTARLA CON LA PAROLA NAME NELLA LISTA CONTACT
+            // let i = 0;
+            
+            // while (i < lettera.length) {
+            //     const nome = lettera[i];
+            //     console.log('lettera nell"array', nome, 'parola', lettera);
+            //     console.log('array nomi', parolaUtente);
+            //     // if (nome == this.parolaUtente[i]) {
+            //     //     return true;
+            //     // }
+            //     i++
+            // }
+
+
+
+        // },
