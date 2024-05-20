@@ -36,8 +36,18 @@
 .mySfondo {
     background-image: url('../sfondo.jpg');
     background-position: center;
+    background-size: cover;
 }
 #userId:hover {
     border: 2px solid red;
     
+}
+#btnDrop {
+    display: none
+}
+#msg:hover > #btnDrop {
+    display: unset
+}
+#sendMsg:hover {
+  color: blue !important;    
 }

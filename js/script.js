@@ -200,7 +200,7 @@ createApp({
                 };
                 user.push(newMsg)
             }, 2000);
-
+            this.newMessage = '';
             console.log(user);
         },
         // CREATO PROBLEMI
