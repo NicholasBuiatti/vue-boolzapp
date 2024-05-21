@@ -82,13 +82,13 @@
                                 </figure>
                                 <div class="col-9">
                                     <p class="fs-4 fw-bold mb-0">{{ user.name }}</p>
-                                    <p v-if="contacts[userNow].messages.length !== 0" class="text-secondary">
+                                    <p v-if="contacts[i].messages.length !== 0" class="text-secondary">
                                         {{user.messages[user.messages.length-1].message}}</p>
                                     <p v-else class="text-secondary">Non hai messaggi</p>
                                 </div>
                             </div>
                             <div class="col-2 text-end">
-                                <span v-if="contacts[userNow].messages.length !== 0"
+                                <span v-if="contacts[i].messages.length !== 0"
                                     class="myTimeSize">{{user.messages[user.messages.length-1].date}}</span>
                             </div>
                         </div>

@@ -171,9 +171,32 @@ createApp({
             userNow: 0,
             newMessage: '',
             searchUser: '',
+            orario: [],
+            data: [],
         }
     },
     methods: {
+        // splitMsg() {
+        //     this.contacts.forEach(msg => {
+        //         console.log('array di messaggio', msg.messages);
+        //         msg.messages.forEach(msgs => {
+        //             let data = msgs.date.split(' ')
+        //             console.log('array di date', msgs.date.split(' '));
+        //             data.forEach((ora, i) => {
+        //                 console.log('ora', ora, i);
+        //                 let orario = [];
+        //                 let data = [];
+        //                 if (i == 1) {
+        //                     orario.push(ora[i])
+        //                 } else {
+        //                     data.push(ora)
+        //                 }
+                        
+        //             })
+        //         });
+        //     });
+            
+        // },
         nMsg (){
             return this.contacts[this.userNow].messages.length
         },
@@ -219,7 +242,7 @@ createApp({
             console.log(this.contacts);
             
         },
-        // pulsante per cancellare il messaggio (ma se elimino l'ultimo mi blocca l'applicazione)
+        // pulsante per cancellare il messaggio (ma se elimino l'ultimo mi cancella i messaggi nel' userList)
         deleteMsg(index) {
             this.contacts[this.userNow].messages.splice(index,1);
             console.log(this.contacts);
@@ -228,7 +251,26 @@ createApp({
 
     },
     mounted() {
-        console.log(this.contacts[this.userNow].messages.length);
+        // this.contacts.forEach(msg => {
+        //     // console.log('array di messaggio', msg.messages);
+        //     msg.messages.forEach(msgs => {
+        //         let data = msgs.date.split(' ')
+        //         // console.log('array di date', msgs.date.split(' '));
+        //         data.forEach((ora, i) => {
+        //             console.log('ora', ora, i);
+        //             let data = ora[0]
+        //             // let orarid = ora.splice(5)
+        //             if (i == 1) {
+        //                 this.orario.push(ora)
+        //             } else {
+        //                 this.data.push(data)
+        //             }
+        //         })
+        //     });
+        // });
+        // console.log('orario', this.orario, 'data:', this.data);
+        
+        
     },
 
 
